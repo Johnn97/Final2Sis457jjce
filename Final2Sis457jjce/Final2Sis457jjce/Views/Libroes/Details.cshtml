@@ -1,0 +1,51 @@
+﻿@model Final2Sis457jjce.Models.Libro
+
+@{
+    ViewData["Title"] = "Detalle de Libro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid pt-4 px-4">
+    <h1>Detalle de Libro</h1>
+
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">Isbn</dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Isbn)
+            </dd>
+            <dt class="col-sm-2">Edición</dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Edicion)
+            </dd>
+            <dt class="col-sm-2">Título</dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Titulo)
+            </dd>
+            <dt class="col-sm-2">Resumen</dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Resumen)
+            </dd>
+            <dt class="col-sm-2">Editorial</dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Editorial)
+            </dd>
+            <dt class="col-sm-2">Fecha de Publicación</dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FechaPublicacion)
+            </dd>
+            <dt class="col-sm-2">Usuario Registro</dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.UsuarioRegistro)
+            </dd>
+            <dt class="col-sm-2">Fecha Registro</dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FechaRegistro)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.Id">Editar</a> |
+        <a asp-action="Index">Regresar a la Lista de Libros</a>
+    </div>
+</div>

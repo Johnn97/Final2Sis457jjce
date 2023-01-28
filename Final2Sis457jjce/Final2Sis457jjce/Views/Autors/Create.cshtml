@@ -1,0 +1,54 @@
+﻿@model Final2Sis457jjce.Models.Autor
+
+@{
+    ViewData["Title"] = "Añadir Autor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid pt-4 px-4">
+    <h1>Añadir Autor</h1>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label class="control-label">Nombres</label>
+                    <input asp-for="Nombres" class="form-control" />
+                    <span asp-validation-for="Nombres" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Apellidos</label>
+                    <input asp-for="Apellidos" class="form-control" />
+                    <span asp-validation-for="Apellidos" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Nacionalidad</label>
+                    <input asp-for="Nacionalidad" class="form-control" />
+                    <span asp-validation-for="Nacionalidad" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @*<label asp-for="UsuarioRegistro" class="control-label"></label>*@
+                    @*<input asp-for="UsuarioRegistro" class="form-control" value="@User.Identity?.Name.ToString()" disabled />*@
+
+
+                    <input type="hidden" asp-for="UsuarioRegistro" class="form-control" value="@User.Identity?.Name?.ToString()" />
+                    <span asp-validation-for="UsuarioRegistro" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Añadir" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Regresar a la Lista de Autores</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

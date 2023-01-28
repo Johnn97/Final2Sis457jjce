@@ -1,0 +1,69 @@
+﻿@model Final2Sis457jjce.Models.Libro
+
+@{
+    ViewData["Title"] = "Añadir Libro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container-fluid pt-4 px-4">
+    <h1>Añadir Libro</h1>
+
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label class="control-label">Isbn</label>
+                    <input asp-for="Isbn" class="form-control" />
+                    <span asp-validation-for="Isbn" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Edición</label>
+                    <input asp-for="Edicion" class="form-control" />
+                    <span asp-validation-for="Edicion" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Título</label>
+                    <input asp-for="Titulo" class="form-control" />
+                    <span asp-validation-for="Titulo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Resumen</label>
+                    <input asp-for="Resumen" class="form-control" />
+                    <span asp-validation-for="Resumen" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Editorial</label>
+                    <input asp-for="Editorial" class="form-control" />
+                    <span asp-validation-for="Editorial" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label">Fecha de Publicacion</label>
+                    <input asp-for="FechaPublicacion" class="form-control" />
+                    <span asp-validation-for="FechaPublicacion" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @*<label asp-for="UsuarioRegistro" class="control-label"></label>*@
+                    @*<input asp-for="UsuarioRegistro" class="form-control" value="@User.Identity?.Name.ToString()" disabled />*@
+
+
+                    <input type="hidden" asp-for="UsuarioRegistro" class="form-control" value="@User.Identity?.Name?.ToString()" />
+                    <span asp-validation-for="UsuarioRegistro" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Añadir" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Regresar a la Lista de Libros</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
